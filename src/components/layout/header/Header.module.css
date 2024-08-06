@@ -1,0 +1,81 @@
+/* .header {
+  text-align: center;
+}
+.logo_image {
+  height: 15vh;
+}
+.socials {
+  float: left;
+  margin-left: 50px;
+}
+.socialsIcon {
+  padding: 0 3px;
+}
+.buttons {
+  float: right;
+  margin-right: 30px;
+}
+.login {
+  padding: 2px 30px;
+}
+.enquire {
+  padding: 2px 12px;
+}
+button {
+  margin-right: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: none;
+} */
+.header {
+  text-align: center;
+  /* background-color: red; */
+  position: fixed;
+    width: 100vw;
+    z-index: 400;
+}
+
+.logo_image {
+  height: 15vh;
+  /* margin-bottom: 20px; Optional: space between logo and part */
+}
+
+.part {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Socials on the left, buttons on the right */
+  align-items: center;
+  padding: 0 50px; /* Adjust the padding as needed */
+  /* background-color: red; */
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between social icons */
+}
+
+.socialsIcon {
+  padding: 0 3px;
+}
+
+.socialButtons {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between buttons */
+}
+
+.login {
+  padding: 2px 30px;
+}
+
+.enquire {
+  padding: 2px 12px;
+}
+
+.login,.enquire {
+  border-radius: 5px;
+  background-color: #ffffff;
+  
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+/* .content{
+    padding: 20vh 0vw;
+    margin: 0 30vh;
+    background-color: red;
+    text-align: center;
+} */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(to bottom, #DFCC21, #F36E0D); /* Vertical linear gradient */
+  color: #FEFCE6; /* Font color */
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  border-radius: 8px; /* Optional: Rounds the corners */
+}
+.content p {
+    text-align: left;
+}
+
+  

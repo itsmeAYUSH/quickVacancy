@@ -1,0 +1,21 @@
+.horizontalAccordionContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px; /* Adjust based on your layout needs */
+  position: relative; /* Ensures it flows with the document */
+  width: 100%; /* Full width of the container */
+  max-width: 1200px; /* Adjust based on your design */
+  margin-top: 20px; /* Ensure it doesn’t overlap with the header */
+}
+
+.horizontalAccordion {
+  flex: 1;
+  max-width: 300px;
+  min-width: 200px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 10px; /* Space between each accordion */
+}
