@@ -6,7 +6,6 @@
 // export const Consulting = () => {
 //   return (
 //     <div
-//       //   className={styles.header}
 //       style={{
 //         backgroundImage: 'url("/images/Group 18.jpg")',
 //         backgroundSize: "cover",
@@ -32,18 +31,28 @@
 //   );
 // };
 
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Consulting.module.css";
-import Header from "../../layout/header/Header";
-import { Navbar } from "../../layout/navbar/Navbar";
-import { ResumeWriting } from "./consultingPages/resumeWriting/ResumeWriting";
+
 export const Consulting = () => {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const navigate = useNavigate();
 
-  const handleButtonClick = (componentName) => {
-    setActiveComponent(componentName);
+  const handleResumeClick = () => {
+    navigate("/Consulting/resume-writing");
   };
-
+  const handleExecutiveClick = () => {
+    navigate("Consulting/executive-search");
+  };
+  const handleHRClick = () => {
+    navigate("/Consulting/HR-Consulting");
+  };
+  const handleTurnkeyClick = () => {
+    navigate("Consulting/turnkey-Recruitment");
+  };
+  const handleCXOClick = () => {
+    navigate("Consulting/CXO-hiring-services");
+  };
   return (
     <div
       style={{
@@ -54,28 +63,28 @@ export const Consulting = () => {
         height: "100vh",
       }}
     >
-      {activeComponent === "ResumeWriting" ? (
-        <ResumeWriting />
-      ) : (
-        <div className={styles.consultingTitle}>
-          <h2>Consulting</h2>
-          <div className={styles.titleButtons}>
-            <button
-              className={styles.but1}
-              onClick={() => handleButtonClick("ResumeWriting")}
-            >
-              Resume Writing
-            </button>
-            <button className={styles.but2}>Executive Search</button>
-            <button className={styles.but2}>Human Resource Consulting</button>
-          </div>
-          <div className={styles.titleButtons}>
-            <button className={styles.but2}>Turnkey Recruitment</button>
-            <button className={styles.but2}>HR consulting</button>
-            <button className={styles.but2}>CXO hiring services</button>
-          </div>
+      <div className={styles.consultingTitle}>
+        <h2>Consulting</h2>
+        <div className={styles.titleButtons}>
+          <button className={styles.but1} onClick={handleResumeClick}>
+            Resume Writing
+          </button>
+          <button className={styles.but2} onClick={handleExecutiveClick}>
+            Executive Search
+          </button>
+          <button className={styles.but2} onClick={handleHRClick}>
+            Human Resource Consulting
+          </button>
         </div>
-      )}
+        <div className={styles.titleButtons}>
+          <button className={styles.but2} onClick={handleTurnkeyClick}>
+            Turnkey Recruitment
+          </button>
+          <button className={styles.but2} onClick={handleCXOClick}>
+            CXO hiring services
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

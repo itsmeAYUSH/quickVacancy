@@ -1,0 +1,11 @@
+.content{
+    padding:10%; 
+    padding-bottom: 0px;
+    color: #0F7A27;
+}
+.sampleResume{
+    position: absolute;
+    bottom: 0;
+    right:10%;
+    border-radius: 5px 5px 0px 0px ;
+}

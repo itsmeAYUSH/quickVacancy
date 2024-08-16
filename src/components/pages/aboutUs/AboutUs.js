@@ -17,7 +17,7 @@ export const AboutUs = () => {
     >
       <Header></Header>
       <Navbar></Navbar>
-
+      <div className={styles.content}>
       <h3>Quick Vacancy Consultancy</h3>
       <h4>About Us</h4>
 
@@ -49,6 +49,8 @@ export const AboutUs = () => {
         this reputation by offering the best recruitment services to clients in
         various sectors across all leading industries.
       </p>
+      </div>
+      
 
       {/* <div className={styles.moreOptions}>
         Browse more options regarding consultancy
