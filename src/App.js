@@ -68,6 +68,8 @@ import { HrConsulting } from "./components/pages/consulting/consultingPages/hrCo
 import { TurnkeyRecruiment } from "./components/pages/consulting/consultingPages/turnkeyRecruitment/TurnkeyRecruiment";
 import { CXOHiringServices } from "./components/pages/consulting/consultingPages/cxoHiringServices/CXOHiringServices";
 import { OurVision } from "./components/pages/aboutUs/OurVision";
+import { PrivacyPolicy } from "./components/pages/privacyPolicy/PrivacyPolicy";
+import { ResumeUpload } from "./components/pages/resumeUpload/ResumeUpload";
 
 const HomeLayout = () => {
   return (
@@ -103,10 +105,10 @@ function App() {
         <Route
           path="/Consulting/CXO-hiring-services"
           element={<CXOHiringServices />}
-        /> <Route
-        path="/About-Us/vision&Mission"
-        element={<OurVision />}
-      />
+        />{" "}
+        <Route path="/About-Us/vision&Mission" element={<OurVision />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/resume-upload" element={<ResumeUpload />} />
       </Routes>
     </Router>
   );

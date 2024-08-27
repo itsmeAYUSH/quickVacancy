@@ -10,7 +10,7 @@ export const CareerCounselling = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("/images/Group 24.jpg")',
+        backgroundImage: 'url("/images/careerCounselling.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -32,11 +32,11 @@ export const CareerCounselling = () => {
           >
             <Typography>Career Counselling</Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          {/* <AccordionDetails>
             <Typography>
               Details about your career counselling services.
             </Typography>
-          </AccordionDetails>
+          </AccordionDetails> */}
         </Accordion>
 
         <Accordion className={styles.horizontalAccordion}>
@@ -49,7 +49,15 @@ export const CareerCounselling = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Your growth strategies and how they benefit clients.
+              Passionate
+            </Typography>
+          </AccordionDetails> <AccordionDetails>
+            <Typography>
+              Placed
+            </Typography>
+          </AccordionDetails> <AccordionDetails>
+            <Typography>
+              Prompt (3P)
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -64,7 +72,11 @@ export const CareerCounselling = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Description of the hiring process.
+              Website
+            </Typography>
+          </AccordionDetails><AccordionDetails>
+            <Typography>
+              Brochure
             </Typography>
           </AccordionDetails>
         </Accordion>

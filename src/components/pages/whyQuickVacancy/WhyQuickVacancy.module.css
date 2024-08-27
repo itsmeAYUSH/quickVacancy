@@ -14,15 +14,38 @@
 .content {
   text-align: center;
   padding: 50px;
-  background: linear-gradient(to bottom, #DFCC21, #F36E0D); /* Vertical linear gradient */
-  color: #FEFCE6; /* Font color */
   max-width: 700px;
   margin: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
   border-radius: 8px; /* Optional: Rounds the corners */
+  /* background: linear-gradient(to bottom, #F36E0D, #DFCC21); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: linear-gradient(to bottom, #DFCC21, #F36E0D); 
+  background-clip: text;
+  background-color: white;
+  /* background:  linear-gradient(red, blue) !important; */
 }
-.content p {
-    text-align: left;
+/* .content p {
+  text-align: left; background: linear-gradient(to bottom, #f36e0d, #dfcc21);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; */
+  /* text-align: left;
+  background: linear-gradient(
+    to bottom,
+    #f36e0d,
+    #dfcc21
+  ); Apply gradient to the text */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+} */
+.aboutUsText {
+  /* color: linear-gradient(red, blue) !important; */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
 }
-
-  

@@ -1,8 +1,3 @@
-* {
-  /* background-color: black; */
-  /* color: pink; */
-}
-
 /* 
 .App-logo {
   height: 40vmin;
@@ -38,7 +33,7 @@
     transform: rotate(360deg);
   }
 } */
-.header {
-  /* margin-top: 31px; */
-  border-bottom: 1px solid #ffffff;
-}
+/* .header {
+   margin-top: 31px;
+   border-bottom: 1px solid #ffffff;
+} */

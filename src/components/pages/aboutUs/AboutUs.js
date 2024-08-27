@@ -52,11 +52,19 @@ export const AboutUs = () => {
       </div>
       
 
+      <div className={styles.moreOptions}>
+        Browse more options regarding consultancy
+        <br></br>
+        <button className={styles.optionButton}>
+          <img src="./images/arrow-downOrange.png"></img>
+        </button>
+      </div>
+      
       {/* <div className={styles.moreOptions}>
         Browse more options regarding consultancy
         <br></br>
         <button className={styles.optionButton}>
-          <img src="./images/arrow-down.png"></img>
+          <img src="./images/arrow-down.png" alt="icon"></img>
         </button>
       </div> */}
     </div>

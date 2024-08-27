@@ -13,8 +13,6 @@ export const OurVision = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-
           height: "100vh",
         }}
       >

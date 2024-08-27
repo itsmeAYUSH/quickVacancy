@@ -56,7 +56,7 @@ export const Consulting = () => {
   return (
     <div
       style={{
-        backgroundImage: 'url("/images/Group 18.jpg")',
+        backgroundImage: 'url("/images/browseMoreOptions.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

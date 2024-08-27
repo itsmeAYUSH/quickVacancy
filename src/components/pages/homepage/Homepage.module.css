@@ -6,6 +6,7 @@
   text-align: center;
   font-size: 28px;
   padding: 35vh 22vw 5vh;
+  color: #ffffff;
 }
 
 .but1,
@@ -20,10 +21,18 @@
 }
 .but1 {
   padding: 10px 15px;
+  color:#0D4470;
+  border: 0;
+  cursor: pointer;
+
 }
 .but2 {
   margin-left: 20px;
   padding: 10px 40px;
+  color:#0D4470;
+  border: 0;
+  cursor: pointer;
+
 }
 .moreOptions{
   text-align: center;
@@ -36,7 +45,7 @@
   background-color: transparent;
   border: 0;
   text-shadow: 0;
-  cursor: pointer; /* Optional: adds a pointer cursor */
+  cursor: pointer;
   transition: transform 0.1s ease; /* Smooth transition */
 }
 
