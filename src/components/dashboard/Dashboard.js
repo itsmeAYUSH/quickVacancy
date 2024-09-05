@@ -7,7 +7,7 @@ import SideNavbar from './sideNavbar/SideNavbar';
 export const Dashboard = () => {
   return (
     <div className={styles.dashboardContainer}>
-      <Header />
+      <Header backgroundColor="#0D4470" />
       <div className={styles.mainContent}>
         <SideNavbar />
         <div className={styles.contentArea}>

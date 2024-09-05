@@ -18,4 +18,8 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0 10px; /* Space between each accordion */
+  border-radius: 20px !important;
+}
+.accordionText{
+  color:#0F7A27
 }

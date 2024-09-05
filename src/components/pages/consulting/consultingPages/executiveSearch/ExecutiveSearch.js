@@ -16,8 +16,8 @@ export const ExecutiveSearch = () => {
           height: "100vh",
         }}
       >
-        <Header />
-        <Navbar />
+          <Header backgroundColor="#04310E"></Header>
+          <Navbar color="#04310E"></Navbar>
         <div className={styles.content}>
           <h4>Executive Search:</h4>
           <p>

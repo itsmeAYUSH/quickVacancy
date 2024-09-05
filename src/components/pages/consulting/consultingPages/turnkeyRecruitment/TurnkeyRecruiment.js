@@ -14,8 +14,8 @@ export const TurnkeyRecruiment = () => {
         height: "100vh",
       }}
     >
-      <Header></Header>
-      <Navbar></Navbar>
+      <Header backgroundColor="#04310E"></Header>
+      <Navbar color="#04310E"></Navbar>
       <div className={styles.content}>
         <h4>Turnkey Recruiting:</h4>
         <p>

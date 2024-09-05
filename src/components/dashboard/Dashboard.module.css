@@ -11,4 +11,6 @@
     position: relative; /* Ensure it's within its stacking context */
     z-index: 0; /* Content should stay behind the sidebar */
   }
-  
+  .header{
+    background-color: pink !important;
+  }

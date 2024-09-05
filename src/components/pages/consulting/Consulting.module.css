@@ -2,6 +2,7 @@
   margin: 0;
   padding: 32vh 0px 0px ;
   text-align: center;
+  color: #ffffff;
 }
 
 .titleButtons {
@@ -17,5 +18,7 @@
     border-radius: 50px;
     border: 0px;
     box-shadow: 2px 2px 2px #888888;
+    color: #0F7A27;
+    font-weight:bold;
   }
   

@@ -22,8 +22,8 @@ export const AboutUs = () => {
         height: "100vh",
       }}
     >
-      <Header></Header>
-      <Navbar></Navbar>
+      <Header backgroundColor="#F36E0D"></Header>
+      <Navbar color="#F36E0D"></Navbar>
       <div className={styles.content}>
         <h3>Quick Vacancy Consultancy</h3>
         <h4>About Us</h4>
@@ -65,7 +65,8 @@ export const AboutUs = () => {
         <button className={styles.optionButton}>
           <img
             src="./images/arrow-downOrange.png"
-            onClick={missionVisionClickHandler}
+            onClick={missionVisionClickHandler} 
+            alt="background-image"
           ></img>
         </button>
       </div>

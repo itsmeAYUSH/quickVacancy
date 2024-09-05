@@ -10,7 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import styles from "./Navbar.module.css"; // Import the CSS module
 
-export const Navbar = () => {
+export const Navbar = ({ color }) => { // Destructure and set a default value for backgroundColor
   const [anchorElIndustry, setAnchorElIndustry] = useState(null);
   const [anchorElServices, setAnchorElServices] = useState(null);
   const [anchorElSector, setAnchorElSector] = useState(null);
@@ -33,9 +33,14 @@ export const Navbar = () => {
     setAnchorElSector(null);
   };
 
+  const navbarStyle = {
+    color: color, // Use the prop to set the background color
+  };
+
   return (
     <AppBar
       className={styles.navbar} // Use the CSS module class
+      style={navbarStyle} // Apply the dynamic background color
       elevation={0}
     >
       <Toolbar className={styles.toolbar}>

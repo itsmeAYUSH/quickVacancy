@@ -4,7 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import styles from './CareerCounselling.module.css';
+import styles from "./CareerCounselling.module.css";
 
 export const CareerCounselling = () => {
   return (
@@ -30,7 +30,9 @@ export const CareerCounselling = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Career Counselling</Typography>
+            <Typography className={styles.accordionText}>
+              Career Counselling
+            </Typography>
           </AccordionSummary>
           {/* <AccordionDetails>
             <Typography>
@@ -45,18 +47,18 @@ export const CareerCounselling = () => {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Growth Formula</Typography>
+            <Typography className={styles.accordionText}>
+              Growth Formula
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Passionate
-            </Typography>
-          </AccordionDetails> <AccordionDetails>
-            <Typography>
-              Placed
-            </Typography>
-          </AccordionDetails> <AccordionDetails>
-            <Typography>
+            <Typography className={styles.accordionText}>Passionate</Typography>
+          </AccordionDetails>{" "}
+          <AccordionDetails>
+            <Typography className={styles.accordionText}>Placed</Typography>
+          </AccordionDetails>{" "}
+          <AccordionDetails>
+            <Typography className={styles.accordionText}>
               Prompt (3P)
             </Typography>
           </AccordionDetails>
@@ -68,20 +70,18 @@ export const CareerCounselling = () => {
             aria-controls="panel3a-content"
             id="panel3a-header"
           >
-            <Typography>Process of Hiring</Typography>
+            <Typography className={styles.accordionText}>
+              Process of Hiring
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Website
-            </Typography>
-          </AccordionDetails><AccordionDetails>
-            <Typography>
-              Brochure
-            </Typography>
+            <Typography className={styles.accordionText}>Website</Typography>
+          </AccordionDetails>
+          <AccordionDetails>
+            <Typography className={styles.accordionText}>Brochure</Typography>
           </AccordionDetails>
         </Accordion>
       </div>
     </div>
   );
 };
-

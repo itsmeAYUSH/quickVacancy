@@ -17,8 +17,8 @@ export const ResumeWriting = () => {
           height: "100vh",
         }}
       >
-        <Header />
-        <Navbar />
+          <Header backgroundColor="#04310E"></Header>
+          <Navbar color="#04310E"></Navbar>
         <div className={styles.content}>
           <h4>Resume Writing:</h4>
           <p>

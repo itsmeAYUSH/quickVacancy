@@ -15,8 +15,8 @@ export const PrivacyPolicy = () => {
         height: "100vh",
       }}
     >
-      <Header></Header>
-      <Navbar></Navbar>
+      <Header backgroundColor="#0D4470"></Header>
+      <Navbar color="#0D4470"></Navbar>
       <div className={styles.content}>
         <h3>Privacy & Policy</h3>
         <h4>About Us</h4>

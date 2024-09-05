@@ -16,8 +16,8 @@ export const OurVision = () => {
           height: "100vh",
         }}
       >
-        <Header />
-        <Navbar />
+        <Header backgroundColor="#F36E0D"></Header>
+        <Navbar color="#F36E0D"></Navbar>
         <div className={styles.content}>
           <h4>Our Vision:</h4>
           <p>

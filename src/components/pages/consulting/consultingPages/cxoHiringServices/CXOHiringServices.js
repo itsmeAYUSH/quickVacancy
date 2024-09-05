@@ -14,8 +14,8 @@ export const CXOHiringServices = () => {
         height: "100vh",
       }}
     >
-      <Header></Header>
-      <Navbar></Navbar>
+      <Header backgroundColor="#04310E"></Header>
+      <Navbar color="#04310E"></Navbar>
       <div className={styles.content}>
         <h4>CXO hiring Services:</h4>
         <p>
