@@ -15,7 +15,7 @@ export const WhyQuickVacancy = () => {
     >
       <div className={styles.content}>
         <div className={styles.abouUsText}>
-          <h3>Why Quick Vacancy Consulting</h3>
+          <h3 className={styles.aboutUsTitle}>Why Quick Vacancy Consulting</h3>
           <p>
             As its excelled as the Best Recruitment Agency, we have helped
             Clients find the right talent while recruiting for various roles
