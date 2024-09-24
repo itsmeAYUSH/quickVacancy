@@ -30,12 +30,12 @@
 .content p {
   text-align: left;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
   background: linear-gradient(to bottom, #dfcc21, #f36e0d);
   color: transparent;
-  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #F36E0D;
 }
 .aboutUsText {
   /* color: linear-gradient(red, blue) !important; */
@@ -48,6 +48,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background: linear-gradient(to bottom, #dfcc21, #f36e0d);
+  background: #F36E0D;
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;

@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import styles from "./SideNavbar.module.css";
 import { FaHome, FaPlus, FaBriefcase, FaUser, FaCog } from "react-icons/fa";
 
-const SideNavbar = () => {
+const SideNavbar = ({ setActiveComponent }) => {
   const [hovered, setHovered] = useState(null);
 
   const navItems = [
-    { name: "Home", icon: <FaHome /> },
-    { name: "Add Job", icon: <FaPlus /> },
-    { name: "Jobs", icon: <FaBriefcase /> },
-    { name: "Profile", icon: <FaUser /> },
-    { name: "Settings", icon: <FaCog /> },
+    { name: "Home", icon: <FaHome />, component: 'Home' },
+    { name: "Post Job", icon: <FaPlus />, component: 'PostJob' },
+    { name: "Jobs", icon: <FaBriefcase />, component: 'Jobs' },
+    { name: "Profile", icon: <FaUser />, component: 'Profile' },
+    { name: "Settings", icon: <FaCog />, component: 'Settings' },
   ];
 
   return (
@@ -21,9 +21,9 @@ const SideNavbar = () => {
           className={styles.navItem}
           onMouseEnter={() => setHovered(index)}
           onMouseLeave={() => setHovered(null)}
+          onClick={() => setActiveComponent(item.component)} // Update the active component on click
         >
           <div className={styles.icon}>{item.icon}</div>
-          {/* Use a conditional class to control text visibility */}
           <div
             className={`${styles.text} ${
               hovered === index ? styles.showText : ""
