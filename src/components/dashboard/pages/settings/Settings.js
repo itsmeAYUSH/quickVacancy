@@ -5,7 +5,7 @@ export const Settings = () => {
   return (
     <div className={styles.settingsContainer}>
       <div className={styles.formContainer}>
-        <h2>Settings</h2>
+        <h2 className={styles.title}>Settings</h2>
         
         <div className={styles.accountInfo}>
           <p><span>Email:</span> user@example.com</p>
