@@ -13,6 +13,7 @@ export const WhyQuickVacancy = () => {
         height: "100vh",
       }}
     >
+      <img src="images/Group 40.png" alt="GroupImage"></img>
       <div className={styles.content}>
         <div className={styles.abouUsText}>
           <h3 className={styles.aboutUsTitle}>Why Quick Vacancy Consulting</h3>

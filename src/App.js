@@ -64,3 +64,60 @@ function App() {
 }
 
 export default App;
+
+
+// import React, { useState } from "react";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { useInView } from "react-intersection-observer";
+// import Header from "./components/layout/header/Header";
+// import {Homepage} from "./components/pages/homepage/Homepage";
+// import {Consulting} from "./components/pages/consulting/Consulting";
+// import {CareerCounselling} from "./components/pages/careerCounselling/CareerCounselling";
+// import {WhyQuickVacancy} from "./components/pages/whyQuickVacancy/WhyQuickVacancy";
+// import {Footer} from "./components/pages/footer/Footer";
+
+// function App() {
+//   const [visibleSection, setVisibleSection] = useState("header");
+
+//   // Intersection observers for all components
+//   const { ref: headerRef, inView: headerInView } = useInView({ threshold: 0.5 });
+//   const { ref: homepageRef, inView: homepageInView } = useInView({ threshold: 0.5 });
+//   const { ref: consultingRef, inView: consultingInView } = useInView({ threshold: 0.5 });
+//   const { ref: careerRef, inView: careerInView } = useInView({ threshold: 0.5 });
+//   const { ref: whyRef, inView: whyInView } = useInView({ threshold: 0.5 });
+//   const { ref: footerRef, inView: footerInView } = useInView({ threshold: 0.5 });
+
+//   // Update visible section based on scrolling
+//   React.useEffect(() => {
+//     if (headerInView) setVisibleSection("header");
+//     else if (homepageInView) setVisibleSection("homepage");
+//     else if (consultingInView) setVisibleSection("consulting");
+//     else if (careerInView) setVisibleSection("careerCounselling");
+//     else if (whyInView) setVisibleSection("whyQuickVacancy");
+//     else if (footerInView) setVisibleSection("footer");
+//   }, [headerInView, homepageInView, consultingInView, careerInView, whyInView, footerInView]);
+
+//   return (
+//     <Router>
+//       <div>
+//         {/* Conditionally render components based on which section is visible */}
+//         {visibleSection === "header" && <Header />}
+//         {visibleSection === "homepage" && <Homepage />}
+//         {visibleSection === "consulting" && <Consulting />}
+//         {visibleSection === "careerCounselling" && <CareerCounselling />}
+//         {visibleSection === "whyQuickVacancy" && <WhyQuickVacancy />}
+//         {visibleSection === "footer" && <Footer />}
+
+//         {/* Use divs with ref to track visibility of each section */}
+//         <div ref={headerRef} style={{ height: "100vh" }}></div>
+//         <div ref={homepageRef} style={{ height: "100vh" }}></div>
+//         <div ref={consultingRef} style={{ height: "100vh" }}></div>
+//         <div ref={careerRef} style={{ height: "100vh" }}></div>
+//         <div ref={whyRef} style={{ height: "100vh" }}></div>
+//         <div ref={footerRef} style={{ height: "100vh" }}></div>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;

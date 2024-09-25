@@ -8,5 +8,8 @@
     position: absolute;
     bottom: 0;
     right:10%;
-    border-radius: 5px 5px 0px 0px ;
+    border-radius: 8px 8px 0px 0px ;
+    background-color: #0F7A27;
+    color:#FFFFFF;
+    padding: 5px 20px;
 }

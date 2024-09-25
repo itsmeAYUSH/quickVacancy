@@ -17,8 +17,8 @@ export const ResumeWriting = () => {
           height: "100vh",
         }}
       >
-          <Header backgroundColor="#04310E"></Header>
-          <Navbar color="#04310E"></Navbar>
+        <Header backgroundColor="#04310E"></Header>
+        <Navbar color="#04310E"></Navbar>
         <div className={styles.content}>
           <h4>Resume Writing:</h4>
           <p>
@@ -61,7 +61,7 @@ export const ResumeWriting = () => {
             to sell your qualifications to potential employers and write a
             professional resume.
           </p>
-          <button className={styles.sampleResume}>Resume Writing</button>
+          <button className={styles.sampleResume}>Sample Resume</button>
         </div>
       </div>
     </div>

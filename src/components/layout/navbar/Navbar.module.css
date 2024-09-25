@@ -1,7 +1,7 @@
 .navbar {
   position: fixed;
   width: 100vw;
-  top: 135px !important; /* Adjust based on your header height */
+  top: 115px !important; /* Adjust based on your header height */
   left: 0;
   background-color: transparent !important;
    /* Ensure no background color */
