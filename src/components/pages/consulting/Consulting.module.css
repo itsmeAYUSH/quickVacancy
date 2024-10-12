@@ -1,6 +1,6 @@
 .consultingTitle {
   margin: 0;
-  padding: 32vh 0px 0px ;
+  padding: 20vh 0px 0px;
   text-align: center;
   color: #ffffff;
 }
@@ -12,13 +12,198 @@
   /* padding: 10px; */
 }
 
-.but1,.but2{
-    margin:20px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: 0px;
-    box-shadow: 2px 2px 2px #888888;
-    color: #0F7A27;
-    font-weight:bold;
-  }
-  
+.but1,
+.but2 {
+  margin: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 0px;
+  /* box-shadow: 2px 2px 2px #888888; */
+  color: #0f7a27;
+  font-weight: bold;
+}
+.imageStyle {
+  width: 150px; /* Adjust the width */
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Optional: Add margin for spacing */
+}
+.consultingTitle {
+  text-align: center;
+}
+
+.titleButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.consultingItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.imageStyle {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.but1,
+.but2 {
+  width: 200px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.consultingItem {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.imageStyle {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(40%); /* Darkens the image */
+}
+
+.imageText {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none; /* Prevents the text from interfering with the button clicks */
+}
+
+.titleButtons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.but1,
+.but2 {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #0f7a27; /* Customize button color */
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.consultingTitle {
+  margin: 0;
+  padding: 20vh 0px 0px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.titleButtons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/*  */
+.consultingTitle {
+  margin: 0;
+  padding: 20vh 0px 0px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.titleButtons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.consultingTitle {
+  margin: 0;
+  padding: 20vh 0px 0px;
+  text-align: center;
+  color: #ffffff;
+  white-space: nowrap; /* Ensure text stays in a single line */
+}
+
+.titleButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 13px; /* Slightly smaller font size */
+}
+
+.but1,
+.but2 {
+  margin: 15px;
+  padding: 8px 16px; /* Reduce padding for smaller buttons */
+  border-radius: 50px;
+  border: 0px;
+  /* box-shadow: 2px 2px 2px #888888; */
+  /* color: #0f7a27; */
+  font-weight: bold;
+  font-size: 14px; /* Smaller font size for buttons */
+}
+
+.imageStyle {
+  width: 120px; /* Reduced width */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.consultingItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px; /* Slightly reduced margin */
+}
+
+/*  */
+.consultingTitle {
+  margin: 0;
+  padding: 20vh 0px 0px;
+  text-align: center;
+  color: #ffffff;
+  white-space: nowrap; /* Ensure text stays in a single line */
+}
+
+.titleButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 13px; /* Slightly smaller font size */
+}
+
+.but1,
+.but2 {
+  margin: 15px;
+  padding: 8px 16px; /* Reduce padding for smaller buttons */
+  border-radius: 50px;
+  border: 0px;
+  /* box-shadow: 2px 2px 2px #888888; */
+  /* color: #0f7a27; */
+  font-weight: bold;
+  font-size: 14px; /* Smaller font size for buttons */
+}
+
+.imageStyle {
+  width: 120px; /* Reduced width */
+  height: auto;
+  margin-bottom: 10px;
+}

@@ -18,8 +18,10 @@ import { OurVision } from "./components/pages/aboutUs/OurVision";
 import { PrivacyPolicy } from "./components/pages/privacyPolicy/PrivacyPolicy";
 import { ResumeUpload } from "./components/pages/resumeUpload/ResumeUpload";
 import { Dashboard } from "./components/dashboard/Dashboard";
+import { Login } from "./components/pages/login/Login";
+import { SignUp } from "./components/pages/signUp/SignUp";
 
-const HomeLayout = () => {
+function HomeLayout() {
   return (
     <>
       <Header />
@@ -30,13 +32,14 @@ const HomeLayout = () => {
       <Footer />
     </>
   );
-};
+}
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomeLayout />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/career-counselling" element={<CareerCounselling />} />
         <Route path="/why-quick-vacancy" element={<WhyQuickVacancy />} />
         <Route path="/about-us" element={<AboutUs />} />
@@ -58,13 +61,14 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/resume-upload" element={<ResumeUpload />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/" element={<HomeLayout />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
 
 // import React, { useState } from "react";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";

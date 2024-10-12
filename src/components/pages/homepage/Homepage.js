@@ -10,6 +10,9 @@ export const Homepage = () => {
   const handleResumeUploadClick = () => {
     navigate("/resume-upload");
   };
+  const dashboardClicker =() =>{
+    navigate("/dashboard");
+  }
 
   return (
     <div
@@ -33,7 +36,7 @@ export const Homepage = () => {
           <button className={styles.but1} onClick={handleResumeUploadClick}>
             Candidate Resume Upload
           </button>
-          <button className={styles.but2}>Company openings</button>
+          <button className={styles.but2} onClick={dashboardClicker}>Company openings</button>
         </div>
       </div>
 

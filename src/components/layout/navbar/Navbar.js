@@ -13,6 +13,7 @@ import styles from "./Navbar.module.css"; // Import the CSS module
 export const Navbar = ({ color }) => { // Destructure and set a default value for backgroundColor
   const [anchorElIndustry, setAnchorElIndustry] = useState(null);
   const [anchorElServices, setAnchorElServices] = useState(null);
+  const [anchorElGrowthFormula, setAnchorElGrowthFormula] = useState(null);
   const [anchorElSector, setAnchorElSector] = useState(null);
 
   const handleIndustryClick = (event) => {
@@ -23,6 +24,9 @@ export const Navbar = ({ color }) => { // Destructure and set a default value fo
     setAnchorElServices(event.currentTarget);
   };
 
+  const handleGrowthFormulaClick =(event) =>{
+    setAnchorElGrowthFormula(event.currentTarget);
+  }
   const handleSectorClick = (event) => {
     setAnchorElSector(event.currentTarget);
   };
@@ -31,6 +35,7 @@ export const Navbar = ({ color }) => { // Destructure and set a default value fo
     setAnchorElIndustry(null);
     setAnchorElServices(null);
     setAnchorElSector(null);
+    setAnchorElGrowthFormula(null);
   };
 
   const navbarStyle = {
@@ -68,8 +73,27 @@ export const Navbar = ({ color }) => { // Destructure and set a default value fo
             to="/about-us"
           >
             About Us
+          </Button> 
+          <Button
+            className={styles.button}
+            color="inherit"
+            aria-controls="Growth-formula-menu"
+            aria-haspopup="true"
+            onClick={handleGrowthFormulaClick}
+            endIcon={anchorElGrowthFormula ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          >
+            Growth formula
           </Button>
-
+          <Menu
+            id="Growth-formula-menu"
+            anchorEl={anchorElGrowthFormula}
+            open={Boolean(anchorElGrowthFormula)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Passionate</MenuItem>
+            <MenuItem onClick={handleClose}>Placed</MenuItem>
+            <MenuItem onClick={handleClose}>Prompt (3P)</MenuItem>
+          </Menu>
           <Button
             className={styles.button}
             color="inherit"
