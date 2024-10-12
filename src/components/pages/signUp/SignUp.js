@@ -18,7 +18,7 @@ export const SignUp = () => {
     try {
       const response = await axios.post(
         // "http://localhost:5000/api/auth/signup",
-        "https://quickvacancy.netlify.app//api/auth/signup",
+        "https://quickvacancy.netlify.app/api/auth/signup",
         {
           name,
           companyName,
