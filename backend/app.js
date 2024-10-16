@@ -25,6 +25,11 @@ app.use(cors({
   credentials: true, // Allow credentials if needed
 }));
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Quick Vacancy API');
+});
+
+
 // Authentication Routes
 app.use('/api/auth', authRoutes);
 
