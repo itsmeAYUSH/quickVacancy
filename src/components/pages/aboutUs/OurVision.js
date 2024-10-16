@@ -16,9 +16,13 @@ export const OurVision = () => {
           height: "100vh",
         }}
       >
-        <Header backgroundColor="#F36E0D"></Header>
-        <Navbar color="#F36E0D"></Navbar>
+        <Header backgroundColor="#0F7A27"></Header>
+        <Navbar color="#0F7A27"></Navbar>
         <div className={styles.content}>
+          <img
+            className={styles.aboutUsIcons}
+            src="/images/aboutUsVision.svg" alt="vision-image"
+          ></img>
           <h4>Our Vision:</h4>
           <p>
             Our vision is to establish a long-term and strategic recruitment
@@ -26,6 +30,10 @@ export const OurVision = () => {
             difficulties into tomorrow’s Rejoice.
           </p>
           <br></br>
+          <img
+            className={styles.aboutUsIcons}
+            src="/images/aboutUsMission.svg" alt="mission-image"
+          ></img>
           <h4>Our Mission:</h4>
           <p>
             Our mission is to increase your organization’s efficiency through

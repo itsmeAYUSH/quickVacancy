@@ -3,6 +3,7 @@ import { Navbar } from "../../layout/navbar/Navbar";
 import Header from "../../layout/header/Header";
 import styles from "./SignUp.module.css";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -11,14 +12,15 @@ export const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [designation, setDesignation] = useState("");
   const [lookingTo, setLookingTo] = useState("");
-  const [password, setPassword] = useState(""); // Add password state
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        // "http://localhost:5000/api/auth/signup",
-        "https://quickvacancy.netlify.app//api/auth/signup",
+        "http://localhost:5000/api/auth/signup",
+        // "quick-vacancy-backend-5a8c.vercel.app/api/auth/signup",
         {
           name,
           companyName,
@@ -29,15 +31,25 @@ export const SignUp = () => {
           password, // Include password in the request
         }
       );
-      console.log(response.data);
-      // Handle successful signup response
+
+      const token = response.data.token;
+
+      // Store the token in localStorage
+      localStorage.setItem("token", token);
+
+      // Set login status to true, which triggers navigation
+      setIsLoggedIn(true);
+      console.log("User signed up successfully and token stored in localStorage");
     } catch (error) {
-      console.error(error);
+      console.error("Signup error:", error);
       alert("Signup failed. Please try again.");
-      // Handle error response
     }
   };
-  
+
+  if (isLoggedIn) {
+    // Redirect to the homepage if signup is successful
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div>

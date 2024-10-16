@@ -1,7 +1,12 @@
-.content{
-    padding:10%; 
-    padding-bottom: 0px;
-    color: #F36E0D;
-    padding-top: 200px;
-
+.content {
+  padding: 10%;
+  padding-bottom: 0px;
+  color: #04310e;
+  padding-top: 200px;
+}
+.aboutUsIcons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
 }

@@ -31,7 +31,7 @@
   text-align: left;
   -webkit-background-clip: text;
   background-clip: text;
-  background: linear-gradient(to bottom, #dfcc21, #f36e0d);
+  background: linear-gradient(to bottom, #0F7A27, #04310E);
   color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -47,8 +47,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  background: linear-gradient(to bottom, #dfcc21, #f36e0d);
-  background: #F36E0D;
+  background: linear-gradient(to bottom, #0F7A27, #0F7A27);
+  background: #0F7A27;
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;

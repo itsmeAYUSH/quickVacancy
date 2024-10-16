@@ -22,8 +22,8 @@ export const AboutUs = () => {
         height: "100vh",
       }}
     >
-      <Header backgroundColor="#F36E0D"></Header>
-      <Navbar color="#F36E0D"></Navbar>
+      <Header backgroundColor="#0F7A27"></Header>
+      <Navbar color="#0F7A27"></Navbar>
       <div className={styles.content}>
         <h3>Quick Vacancy Consultancy</h3>
         <h4>About Us</h4>

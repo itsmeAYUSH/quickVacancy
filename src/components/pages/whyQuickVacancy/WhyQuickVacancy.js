@@ -6,7 +6,7 @@ export const WhyQuickVacancy = () => {
     <div
       className={styles.header}
       style={{
-        backgroundImage: 'url("/images/WhyQuickVacancyConsultancy.jpg")',
+        backgroundImage: 'url("/images/WhyQuickVacancyConsultancy.svg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

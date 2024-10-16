@@ -5,14 +5,14 @@
 
 .moreOptions {
   text-align: center;
-  color:#F36E0D ;
+  color:#04310E ;
   margin-top: 100px;
 }
 .optionButton {
   padding: 0;
   margin-top: 10px;
-  color:#F36E0D ;
-  background-color: #F36E0D;
+  color:#04310E ;
+  background-color: #04310E;
 
   background-color: transparent;
   border: 0;
@@ -23,7 +23,7 @@
 .content {
   padding: 10%;
   padding-bottom: 0px;
-  color: #F36E0D;
+  color: #04310E;
   padding-top: 200px;
 }
 
