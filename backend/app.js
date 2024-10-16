@@ -1,28 +1,41 @@
 const express = require('express');
-const cors = require('cors'); // Make sure you import cors
-const connectDB = require('./config/db'); // The db.js file
-const authRoutes = require('./routes/authRoutes');
+const cors = require('cors'); // Importing cors
+const connectDB = require('./config/db'); // Importing the db.js file
+const authRoutes = require('./routes/authRoutes'); // Importing the auth routes
+require('dotenv').config(); // Loading environment variables from .env file
 
 const app = express();
 
-// Connect to database
+// Connect to MongoDB
 connectDB();
 
-console.log("MONGO_URI:", process.env.MONGO_URI); // Check MongoDB URI
-console.log("JWT_SECRET:", process.env.JWT_SECRET); // Check JWT secret
+// Log MongoDB URI and JWT secret in development mode (optional)
+if (process.env.NODE_ENV === 'development') {
+  console.log("MONGO_URI:", process.env.MONGO_URI);
+  console.log("JWT_SECRET:", process.env.JWT_SECRET);
+}
 
-// Init Middleware
+// Init Middleware for parsing JSON
 app.use(express.json());
 
-// Enable CORS with options (optional)
+// Enable CORS with options
 app.use(cors({
   origin: 'http://localhost:3000', // Allow your frontend origin
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow the necessary methods
-  credentials: true, // Allow credentials (if needed)
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow necessary methods
+  credentials: true, // Allow credentials if needed
 }));
 
-// Routes
+// Authentication Routes
 app.use('/api/auth', authRoutes);
 
+// Global error handler for catching unhandled errors
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
+
+// Define the PORT and start the server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port http://localhost:5000`));
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

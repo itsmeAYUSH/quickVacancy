@@ -1,10 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-// const User = require('../models/User'); // Ensure correct path to your User model
-// const User = require("user"); // Assuming you have a User model
 const User = require("../models/user");
 
-// Helper function to create JWT
 const createToken = (userId) => {
   const payload = {
     user: {
@@ -29,7 +26,7 @@ exports.registerUser = async (req, res) => {
     designation,
     lookingTo,
     password,
-  } = req.body; // Ensure to include password
+  } = req.body; 
 
   try {
     // Check if user already exists

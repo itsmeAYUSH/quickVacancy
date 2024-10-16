@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const CandidateSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -9,4 +9,4 @@ const CandidateSchema = new mongoose.Schema({
   resumeUrl: { type: String },
 });
 
-module.exports = mongoose.model('Candidate', CandidateSchema);
+module.exports = mongoose.model("Candidate", CandidateSchema);
