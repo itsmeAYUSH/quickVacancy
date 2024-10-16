@@ -19,8 +19,8 @@ export const SignUp = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
-        // "quick-vacancy-backend-5a8c.vercel.app/api/auth/signup",
+        // "http://localhost:5000/api/auth/signup",
+        "https://quickvacancy.netlify.app/api/auth/signup",
         {
           name,
           companyName,

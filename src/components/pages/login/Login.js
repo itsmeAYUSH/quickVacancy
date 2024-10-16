@@ -14,14 +14,17 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        // const response = await fetch("quick-vacancy-backend-5a8c.vercel.app/api/auth/login", {
+      // const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(
+        "https://quickvacancy.netlify.app/api/auth/login",
+        {
           method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json();
 
