@@ -6,6 +6,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 export const SignUp = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,19 +19,15 @@ export const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        // "http://localhost:5000/api/auth/signup",
-        "https://quickvacancy.netlify.app/api/auth/signup",
-        {
-          name,
-          companyName,
-          email,
-          phoneNumber,
-          designation,
-          lookingTo,
-          password, // Include password in the request
-        }
-      );
+      const response = await axios.post(`${apiUrl}/api/auth/signup`, {
+        name,
+        companyName,
+        email,
+        phoneNumber,
+        designation,
+        lookingTo,
+        password,
+      });
 
       const token = response.data.token;
 
@@ -39,7 +36,9 @@ export const SignUp = () => {
 
       // Set login status to true, which triggers navigation
       setIsLoggedIn(true);
-      console.log("User signed up successfully and token stored in localStorage");
+      console.log(
+        "User signed up successfully and token stored in localStorage"
+      );
     } catch (error) {
       console.error("Signup error:", error);
       alert("Signup failed. Please try again.");
@@ -47,7 +46,6 @@ export const SignUp = () => {
   };
 
   if (isLoggedIn) {
-    // Redirect to the homepage if signup is successful
     return <Navigate to="/" replace />;
   }
 
