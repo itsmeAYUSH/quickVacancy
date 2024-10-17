@@ -18,17 +18,26 @@ if (process.env.NODE_ENV === 'development') {
 // Init Middleware for parsing JSON
 app.use(express.json());
 
-// Enable CORS with options
+// CORS options to allow both localhost and Netlify
+const allowedOrigins = ['http://localhost:3000', 'https://quickvacancy.netlify.app'];
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow your frontend origin
+  origin: function (origin, callback) {
+    // Allow requests with no origin like mobile apps or curl requests
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('CORS policy: This origin is not allowed'), false);
+    }
+    return callback(null, true);
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow necessary methods
   credentials: true, // Allow credentials if needed
 }));
 
+// Test route
 app.get('/', (req, res) => {
   res.send('Welcome to Quick Vacancy API');
 });
-
 
 // Authentication Routes
 app.use('/api/auth', authRoutes);
