@@ -18,6 +18,17 @@ export const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("API URL:", apiUrl);
+    console.log("Form data:", {
+      name,
+      companyName,
+      email,
+      phoneNumber,
+      designation,
+      lookingTo,
+      password,
+    });
+
     try {
       const response = await axios.post(`${apiUrl}/api/auth/signup`, {
         name,
@@ -30,18 +41,21 @@ export const SignUp = () => {
       });
 
       const token = response.data.token;
-
-      // Store the token in localStorage
       localStorage.setItem("token", token);
-
-      // Set login status to true, which triggers navigation
       setIsLoggedIn(true);
       console.log(
         "User signed up successfully and token stored in localStorage"
       );
     } catch (error) {
-      console.error("Signup error:", error);
-      alert("Signup failed. Please try again.");
+      if (error.response) {
+        console.error("Signup error response:", error.response.data);
+        alert(
+          `Signup failed: ${error.response.data.message || "Please try again."}`
+        );
+      } else {
+        console.error("Signup error:", error.message);
+        alert("Signup failed. Please try again.");
+      }
     }
   };
 

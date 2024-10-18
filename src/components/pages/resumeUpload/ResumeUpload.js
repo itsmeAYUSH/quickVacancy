@@ -8,6 +8,7 @@ export const ResumeUpload = () => {
   const [dragging, setDragging] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [fileErrors, setFileErrors] = useState("");
+  const [loading, setLoading] = useState(false); // Initialize loading as false
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -107,15 +108,57 @@ export const ResumeUpload = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!selectedFile) {
       setFileErrors("Please upload your resume in PDF format.");
       return;
     }
 
     if (validateForm() && !fileErrors) {
-      setIsSubmitted(true);
+      const formDataToSubmit = new FormData();
+      formDataToSubmit.append("fullName", formData.fullName);
+      formDataToSubmit.append("email", formData.email);
+      formDataToSubmit.append("phoneNumber", formData.phoneNumber);
+      formDataToSubmit.append("designation", formData.designation);
+      formDataToSubmit.append("resume", selectedFile);
+
+      setLoading(true); // Start loading
+
+      try {
+        const token = localStorage.getItem("token");
+        const response = await fetch("http://localhost:5000/api/uploadResume", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formDataToSubmit,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Upload successful:", data);
+          setIsSubmitted(true);
+          // Reset form after submission
+          setFormData({
+            fullName: "",
+            email: "",
+            phoneNumber: "",
+            designation: "",
+          });
+          setSelectedFile(null);
+        } else {
+          const errorData = await response.json();
+          console.error("Error:", errorData.message);
+          setFileErrors(errorData.message );
+        }
+      } catch (error) {
+        console.error("Error uploading resume:", error);
+        setFileErrors("An unexpected error occurred. Please try again.");
+      } finally {
+        setLoading(false); // Stop loading
+      }
     }
   };
 
@@ -198,13 +241,19 @@ export const ResumeUpload = () => {
                       <p>Upload the file in PDF format</p>
                     </>
                   )}
-                  {fileErrors && <p className={styles.errorText}>{fileErrors}</p>}
+                  {fileErrors && (
+                    <p className={styles.errorText}>{fileErrors}</p>
+                  )}
                 </div>
 
                 <div className={styles.verticalLine}></div>
 
                 <div className={styles.credentials}>
-                  <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                  <form
+                    className={styles.form}
+                    onSubmit={handleSubmit}
+                    noValidate
+                  >
                     <div className={styles.formRow}>
                       <div className={styles.inputGroup}>
                         <input
@@ -280,7 +329,7 @@ export const ResumeUpload = () => {
 
                     <div className={styles.formRow}>
                       <button type="submit" className={styles.uploadButton}>
-                        Upload
+                        {loading ? "Uploading ..." : "Upload"}
                       </button>
                     </div>
                   </form>
@@ -291,7 +340,9 @@ export const ResumeUpload = () => {
             <div className={styles.thankYouMessage}>
               <img src="./images/resumeUploadSuccess.png" alt="Success" />
               <h2>Thank you for submitting your resume.</h2>
-              <p>We will review your application and get back to you shortly.</p>
+              <p>
+                We will review your application and get back to you shortly.
+              </p>
             </div>
           )}
         </div>
@@ -299,3 +350,5 @@ export const ResumeUpload = () => {
     </div>
   );
 };
+
+export default ResumeUpload;
