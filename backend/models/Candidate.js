@@ -6,8 +6,7 @@ const CandidateSchema = new mongoose.Schema({
   password: { type: String, required: true },
   phoneNumber: { type: String },
   designation: { type: String },
-  resumeUrl: { type: String }, // Store the resume file path here
-  uploadedAt: { type: Date, default: Date.now }, // Track when the resume was uploaded
+  resumeUrl: { type: String },
 });
 
 module.exports = mongoose.model("Candidate", CandidateSchema);

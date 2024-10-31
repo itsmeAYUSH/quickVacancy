@@ -3,34 +3,29 @@ const mongoose = require("mongoose");
 // Function to connect to MongoDB
 const connectDB = async () => {
   try {
-    const MONGO_URI = process.env.MONGO_URI; 
-    console.log(`MongoDB URI: ${MONGO_URI}`);
+    const MONGO_URI = process.env.MONGO_URI;  // Access environment variable directly
+    await mongoose.connect(MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-    await mongoose.connect(MONGO_URI);
-    console.log("MongoDB connected...");
+    mongoose.connection.on("connected", () => {
+      console.log("MongoDB connected...");
+    });
+
+    // Additional listeners
+    mongoose.connection.on("error", (err) => {
+      console.error("MongoDB connection error:", err);
+    });
+
+    mongoose.connection.on("disconnected", () => {
+      console.log("MongoDB disconnected. Attempting to reconnect...");
+    });
+
   } catch (err) {
     console.error("Error connecting to MongoDB:", err);
-    process.exit(1);  // Exit process with failure
+    process.exit(1); // Optionally exit the process on failure in production
   }
 };
 
-// Connection listeners for error and disconnect events
-mongoose.connection.on("error", (err) => {
-  console.error("MongoDB connection error:", err);
-});
-
-mongoose.connection.on("disconnected", () => {
-  console.log("MongoDB disconnected. Attempting to reconnect...");
-});
-
-// Check if the model has already been defined to prevent overwriting
-const User = mongoose.models.User || mongoose.model("User", new mongoose.Schema({
-  username: { type: String, required: true },
-  email: { type: String, required: true },
-}, { timestamps: true }));
-
-// Export the connectDB function and User model
-module.exports = {
-  connectDB,
-  User,
-};
+module.exports = connectDB;
