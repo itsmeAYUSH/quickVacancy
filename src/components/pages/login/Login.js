@@ -3,44 +3,32 @@ import styles from "./Login.module.css";
 import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
 import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
 
 export const Login = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false); // Loading state
-  
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when starting login
-    setErrorMessage(""); // Clear previous error message
-
     try {
-      const response = await fetch(`${apiUrl}/api/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post(`${API_URL}/api/auth/login`, {
+        email,
+        password,
       });
-
-      // Check if the response body exists before parsing JSON
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Login successful:", data);
-        localStorage.setItem("token", data.token); // Store the token in localStorage
-        setIsLoggedIn(true); // Set login status to true
-      } else {
-        const errorData = await response.json().catch(() => null); // Handle empty or invalid JSON
-        setErrorMessage(errorData?.msg || "Login failed");
-      }
-    } catch (err) {
-      console.error("Error during login:", err);
-      setErrorMessage("An error occurred. Please try again.");
-    } finally {
-      setLoading(false); // Set loading to false after login attempt
+      console.log(response.data);
+      setIsLoggedIn(true);
+      // Handle successful login here (e.g., save token, redirect)
+    } catch (error) {
+      console.error(
+        "Login error:",
+        error.response ? error.response.data : error.message
+      );
+      // Handle login error here (e.g., show error message)
     }
   };
 

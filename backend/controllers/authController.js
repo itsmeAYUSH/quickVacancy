@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const User = require("../models/User");
 
 const createToken = (userId) => {
   const payload = {
@@ -16,13 +16,13 @@ const createToken = (userId) => {
   );
 };
 
-// Register User
-exports.registerUser = async (req, res) => {
+// signup User
+exports.signupUser = async (req, res) => {
   const {
     name,
     companyName,
     email,
-    phoneNumber,
+    phone,
     designation,
     lookingTo,
     password,
@@ -39,7 +39,7 @@ exports.registerUser = async (req, res) => {
     user = new User({
       name,
       email,
-      phone: phoneNumber, // Match this to the model
+      phone, // Match this to the model
       designation,
       companyName, // Assuming you will add companyName to your User model
       lookingTo, // Assuming you will add lookingTo to your User model

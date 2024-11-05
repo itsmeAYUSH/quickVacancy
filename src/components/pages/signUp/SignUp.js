@@ -6,7 +6,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 export const SignUp = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ export const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${apiUrl}/api/auth/signup`, {
+      const response = await axios.post(`${API_URL}/api/auth/signup`, {
         name,
         companyName,
         email,
