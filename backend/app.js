@@ -17,10 +17,10 @@ connectDB();
 
 // Init Middleware for parsing JSON
 app.use(express.json());
-const frontEndURL = process.env.PORT;
+const frontEndURL = process.env.frontEndURL;
 
 // CORS options to allow both localhost and Netlify
-const allowedOrigins = frontEndURL;
+const allowedOrigins = "http://localhost:3000";
 
 
 app.use(

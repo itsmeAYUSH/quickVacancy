@@ -10,31 +10,54 @@ export const SignUp = () => {
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [designation, setDesignation] = useState("");
   const [lookingTo, setLookingTo] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await axios.post(`${API_URL}/api/auth/signup`, {
+  //       name,
+  //       companyName,
+  //       email,
+  //       phone, // Changed here to match the schema
+  //       designation,
+  //       lookingTo,
+  //       password,
+  //     });
+
+  //     const token = response.data.token;
+  //     localStorage.setItem("token", token);
+  //     setIsLoggedIn(true);
+  //     console.log("User signed up successfully and token stored in localStorage");
+  //   } catch (error) {
+  //     console.error("Signup error:", error);
+  //     alert("Signup failed. Please try again.");
+  //   }
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const payload = {
+      name,
+      companyName,
+      email,
+      phone,
+      designation,
+      lookingTo,
+      password,
+    };
+
+    console.log("Payload being sent:", payload);
+
     try {
-      const response = await axios.post(`${API_URL}/api/auth/signup`, {
-        name,
-        companyName,
-        email,
-        phoneNumber,
-        designation,
-        lookingTo,
-        password,
-      });
-
+      const response = await axios.post(`${API_URL}/api/auth/signup`, payload);
       const token = response.data.token;
-
-      // Store the token in localStorage
       localStorage.setItem("token", token);
-
-      // Set login status to true, which triggers navigation
       setIsLoggedIn(true);
       console.log(
         "User signed up successfully and token stored in localStorage"
@@ -54,11 +77,9 @@ export const SignUp = () => {
       <Header backgroundColor="#0D4470" />
       <Navbar color="#0D4470" />
 
-      {/* Signup Form */}
       <div className={styles.signupContainer}>
         <h2 className={styles.signupTitle}>Sign up</h2>
         <form className={styles.signupForm} onSubmit={handleSubmit}>
-          {/* Row 1 */}
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
               <label htmlFor="name">Your name</label>
@@ -95,16 +116,15 @@ export const SignUp = () => {
             </div>
           </div>
 
-          {/* Row 2 */}
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label htmlFor="phoneNumber">Phone number</label>
+              <label htmlFor="phone">Phone number</label> {/* Updated here */}
               <input
                 type="tel"
-                id="phoneNumber"
+                id="phone" // Updated here
                 placeholder="Phone number"
-                value={phoneNumber}
-                onChange={(event) => setPhoneNumber(event.target.value)}
+                value={phone} // Updated here
+                onChange={(event) => setPhone(event.target.value)} // Updated here
                 required
               />
             </div>
@@ -127,7 +147,6 @@ export const SignUp = () => {
             </div>
           </div>
 
-          {/* Row 3 */}
           <div className={styles.formGroup}>
             <label htmlFor="lookingTo">I am looking to</label>
             <select
@@ -144,7 +163,6 @@ export const SignUp = () => {
             </select>
           </div>
 
-          {/* Password Field */}
           <div className={styles.formGroup}>
             <label htmlFor="password">Password</label>
             <input
@@ -157,7 +175,6 @@ export const SignUp = () => {
             />
           </div>
 
-          {/* Sign Up Button */}
           <button className={styles.postJobButton} type="submit">
             Sign Up
           </button>
