@@ -15,20 +15,27 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when starting the login process
+    setErrorMessage(""); // Reset the error message
+
     try {
       const response = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
       });
       console.log(response.data);
-      setIsLoggedIn(true);
-      // Handle successful login here (e.g., save token, redirect)
+
+      // Save the token in local storage
+      localStorage.setItem("token", response.data.token);
+      setIsLoggedIn(true); // Update the login state
     } catch (error) {
       console.error(
         "Login error:",
         error.response ? error.response.data : error.message
       );
-      // Handle login error here (e.g., show error message)
+      setErrorMessage("Invalid email or password."); // Set error message for UI
+    } finally {
+      setLoading(false); // Reset loading state
     }
   };
 

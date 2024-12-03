@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
 import styles from "./ResumeUpload.module.css";
+import axios from "axios";
 
 export const ResumeUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -13,9 +14,9 @@ export const ResumeUpload = () => {
     email: "",
     phoneNumber: "",
     designation: "",
+    // password: "", // Add password field
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const fileInputRef = useRef(null);
 
   const handleFileChange = (event) => {
@@ -107,15 +108,52 @@ export const ResumeUpload = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
     if (!selectedFile) {
       setFileErrors("Please upload your resume in PDF format.");
       return;
     }
 
-    if (validateForm() && !fileErrors) {
-      setIsSubmitted(true);
+    if (validateForm()) {
+      const formDataToSend = new FormData();
+      formDataToSend.append("resume", selectedFile);
+      formDataToSend.append("fullName", formData.fullName);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phoneNumber", formData.phoneNumber);
+      formDataToSend.append("designation", formData.designation);
+
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("No token found in local storage");
+          alert("You need to log in to upload your resume.");
+          return;
+        }
+
+        const response = await axios.post(
+          "http://localhost:5000/api/candidate/uploadResume",
+          formDataToSend,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        console.log("Resume uploaded successfully:", response.data);
+        setIsSubmitted(true);
+      } catch (error) {
+        console.error(
+          "Error uploading resume: ",
+          error.response ? error.response.data : error.message
+        );
+        if (error.response && error.response.status === 401) {
+          alert("Your session has expired. Please log in again.");
+        }
+      }
     }
   };
 
@@ -198,13 +236,19 @@ export const ResumeUpload = () => {
                       <p>Upload the file in PDF format</p>
                     </>
                   )}
-                  {fileErrors && <p className={styles.errorText}>{fileErrors}</p>}
+                  {fileErrors && (
+                    <p className={styles.errorText}>{fileErrors}</p>
+                  )}
                 </div>
 
                 <div className={styles.verticalLine}></div>
 
                 <div className={styles.credentials}>
-                  <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                  <form
+                    className={styles.form}
+                    onSubmit={handleSubmit}
+                    noValidate
+                  >
                     <div className={styles.formRow}>
                       <div className={styles.inputGroup}>
                         <input
@@ -291,7 +335,9 @@ export const ResumeUpload = () => {
             <div className={styles.thankYouMessage}>
               <img src="./images/resumeUploadSuccess.png" alt="Success" />
               <h2>Thank you for submitting your resume.</h2>
-              <p>We will review your application and get back to you shortly.</p>
+              <p>
+                We will review your application and get back to you shortly.
+              </p>
             </div>
           )}
         </div>

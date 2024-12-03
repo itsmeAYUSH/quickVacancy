@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors"); // Importing cors
 const connectDB = require("./config/db"); // Importing the db.js file
 const authRoutes = require("./routes/authRoutes"); // Importing the auth routes
+const candidateRoutes = require("./routes/candidateRoutes"); // Importing candidate routes
+const jobRoutes = require("./routes/jobRoutes"); // Importing job routes
 require("dotenv").config(); // Loading environment variables from .env file
 
 const app = express();
@@ -17,11 +19,10 @@ connectDB();
 
 // Init Middleware for parsing JSON
 app.use(express.json());
-const frontEndURL = process.env.frontEndURL;
+const frontEndURL = process.env.frontEndURL || "http://localhost:3000"; // Default to localhost if not set in .env
 
 // CORS options to allow both localhost and Netlify
-const allowedOrigins = "http://localhost:3000";
-
+const allowedOrigins = [frontEndURL, "https://quickvacancy.netlify.app"]; // Add Netlify URL if required
 
 app.use(
   cors({
@@ -49,6 +50,12 @@ app.get("/", (req, res) => {
 // Authentication Routes
 app.use("/api/auth", authRoutes);
 
+// Candidate Routes
+app.use("/api/candidate", candidateRoutes);
+
+// Job Routes
+app.use("/api/jobs", jobRoutes); // Add this line to include job routes
+
 // Global error handler for catching unhandled errors
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -56,7 +63,7 @@ app.use((err, req, res, next) => {
 });
 
 // Define the PORT and start the server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000; // Default to 5000 if not specified in .env
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

@@ -20,6 +20,8 @@ import { ResumeUpload } from "./components/pages/resumeUpload/ResumeUpload";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { Login } from "./components/pages/login/Login";
 import { SignUp } from "./components/pages/signUp/SignUp";
+import PostJob from "./components/dashboard/pages/postJob/PostJob";
+import { Jobs } from "./components/dashboard/pages/jobs/Jobs";
 
 function HomeLayout() {
   return (
@@ -61,6 +63,8 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/resume-upload" element={<ResumeUpload />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/post-job/:jobId?" element={<PostJob />} />{" "}
         <Route path="/" element={<HomeLayout />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>

@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+// Function to create a JWT token
 const createToken = (userId) => {
   const payload = {
     user: {
@@ -11,35 +12,28 @@ const createToken = (userId) => {
 
   return jwt.sign(
     payload,
-    process.env.JWT_SECRET,
+    process.env.JWT_SECRET, // Ensure you have JWT_SECRET in your environment variables
     { expiresIn: "1h" } // Set a reasonable expiration time
   );
 };
 
-// signup User
+// Signup User
 exports.signupUser = async (req, res) => {
-  const {
-    name,
-    companyName,
-    email,
-    phone,
-    designation,
-    lookingTo,
-    password,
-  } = req.body; 
+  const { name, companyName, email, phone, designation, lookingTo, password } =
+    req.body;
 
   try {
     // Check if user already exists
     let user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ msg: "User already exists" });
+      return res.status(400).json({ msg: "User  already exists" });
     }
 
     // Create a new user
     user = new User({
       name,
       email,
-      phone, // Match this to the model
+      phone,
       designation,
       companyName, // Assuming you will add companyName to your User model
       lookingTo, // Assuming you will add lookingTo to your User model
