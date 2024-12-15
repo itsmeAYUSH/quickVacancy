@@ -1,63 +1,3 @@
-// import React from "react";
-// import styles from "./PrivacyPolicy.module.css";
-// import Header from "../../layout/header/Header";
-// import { Navbar } from "../../layout/navbar/Navbar";
-
-// export const PrivacyPolicy = () => {
-//   return (
-//     <div
-//       className={styles.header}
-//       style={{
-//         backgroundImage: 'url("/images/Group 31.jpg")',
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         backgroundRepeat: "no-repeat",
-//         height: "100vh",
-//       }}
-//     >
-//       <Header backgroundColor="#0D4470"></Header>
-//       <Navbar color="#0D4470"></Navbar>
-//       <div className={styles.content}>
-
-//       </div>
-//     </div>
-//   );
-// };
-
-// import React, { useState } from "react";
-// import styles from "./PrivacyPolicy.module.css";
-// import Header from "../../layout/header/Header";
-// import { Navbar } from "../../layout/navbar/Navbar";
-// import Pagination from "@mui/material/Pagination";
-// import { Box } from "@mui/material";
-
-// export const PrivacyPolicy = () => {
-//   const [page, setPage] = useState(1);
-
-//   const handlePageChange = (event, value) => {
-//     setPage(value);
-//   };
-
-//   return (
-//     <div
-//       className={styles.header}
-//       style={{
-//         backgroundImage: 'url("/images/Group 31.jpg")',
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         backgroundRepeat: "no-repeat",
-//         height: "100vh",
-//       }}
-//     >
-//       <Header backgroundColor="#0D4470" />
-//       <Navbar color="#0D4470" />
-
-//       <div className={styles.content}>
-//         <h3>Privacy & Policy</h3>
-
-//         {page === 1 && (
-//           <>
-
 import React, { useState } from "react";
 import styles from "./PrivacyPolicy.module.css";
 import Header from "../../layout/header/Header";
@@ -123,7 +63,7 @@ export const PrivacyPolicy = () => {
 
         {page === 2 && (
           <p>
-            Disclosure of Data:<br></br> Quick Vacancy may disclose your
+            Disclosure of Data:<br></br><br></br> Quick Vacancy may disclose your
             Personal Data in the good faith belief that such action is necessary
             to –<br></br> • To comply with a legal obligation <br></br>• To
             protect and defend the rights.<br></br> • To prevent or investigate

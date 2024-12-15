@@ -1,11 +1,12 @@
 .navbar {
   position: fixed;
-  width: 100vw;
-  top: 115px !important; /* Adjust based on your header height */
+  width: 100%;
+  top: 80px !important; /* Adjust based on your header height */
   left: 0;
   background-color: transparent !important;
-   /* Ensure no background color */
+  /* Ensure no background color */
   border-top: 2px solid #ffffff;
+  backdrop-filter: blur(40px);
   z-index: 100; /* Ensure it stays above other content */
 }
 
@@ -19,6 +20,6 @@
   /* font-weight: bold; */
   color: inherit;
 }
-.button:active{
+.button:active {
   /* color: blue !important; */
 }
