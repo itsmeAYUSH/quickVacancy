@@ -3,43 +3,70 @@ import styles from "./Login.module.css";
 import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
 import { Link, Navigate } from "react-router-dom";
-import axios from "axios";
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth, googleProvider } from "../../fireBaseConfig/FireBaseConfig"; // Import auth and googleProvider
 
 export const Login = () => {
-  const API_URL = process.env.REACT_APP_API_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
+  const [resetEmailSent, setResetEmailSent] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when starting the login process
-    setErrorMessage(""); // Reset the error message
+    setLoading(true);
+    setErrorMessage("");
 
     try {
-      const response = await axios.post(`${API_URL}/api/auth/login`, {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
         email,
-        password,
-      });
-      console.log(response.data);
-
-      // Save the token in local storage
-      localStorage.setItem("token", response.data.token);
-      setIsLoggedIn(true); // Update the login state
-    } catch (error) {
-      console.error(
-        "Login error:",
-        error.response ? error.response.data : error.message
+        password
       );
-      setErrorMessage("Invalid email or password."); // Set error message for UI
+      console.log(userCredential.user);
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.error("Login error:", error.message);
+      setErrorMessage("Invalid email or password.");
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
-  // If the user is logged in, redirect to the home page
+  const handlePasswordReset = async () => {
+    if (!email) {
+      setErrorMessage("Please enter your email address.");
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setResetEmailSent(true);
+      setErrorMessage("");
+    } catch (error) {
+      console.error("Password reset error:", error.message);
+      setErrorMessage("Failed to send password reset email. Please try again.");
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log("User  signed in with Google:", user);
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.error("Google login error:", error.message);
+      setErrorMessage("Failed to sign in with Google. Please try again.");
+    }
+  };
+
   if (isLoggedIn) {
     return <Navigate to="/" replace />;
   }
@@ -70,6 +97,11 @@ export const Login = () => {
             <div className={styles.loginContainer}>
               <h2 className={styles.loginTitle}>Login</h2>
               {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+              {resetEmailSent && (
+                <p className={styles.success}>
+                  Password reset email sent! Check your inbox.
+                </p>
+              )}
               <form onSubmit={handleLogin}>
                 <div className={styles.formGroup}>
                   <label>Email address</label>
@@ -98,13 +130,25 @@ export const Login = () => {
                 >
                   {loading ? "Logging in..." : "Login"}
                 </button>
-                <p>
-                  Don't have an account?{" "}
-                  <Link to="/signup" className={styles.signupLink}>
-                    Sign up
-                  </Link>
-                </p>
+                <button
+                  type="button"
+                  className={styles.loginButton} // Use the same class for styling
+                  onClick={handleGoogleLogin}
+                  disabled={loading}
+                  style={{ marginTop: " 10px" }} // Add some margin for spacing
+                >
+                  Login with Google
+                </button>
               </form>
+              <button
+                onClick={handlePasswordReset}
+                className={styles.resetButton}
+              >
+                Forgot Password?
+              </button>
+              <p>
+                Don't have an account? <Link to="/signup">Register here</Link>
+              </p>
             </div>
           </div>
         </div>

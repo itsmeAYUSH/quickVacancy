@@ -100,3 +100,26 @@
 .loginButton:hover {
   background-color: #3b8fd1;
 }
+.loginButton {
+  background-color: #0D4470; /* Match your theme color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.loginButton:hover {
+  background-color: #0a2e4d; /* Darker shade for hover effect */
+}
+
+.resetButton {
+  background-color: transparent;
+  color: #0D4470;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}

@@ -115,7 +115,8 @@ export const Consulting = () => {
           </div>
           <div className={styles.consultingItem}>
             <img
-              src="/images/hrConsulting.png"
+              // src="/images/HumanResourceConsulting.png"
+              src="/images/HRConsulting.png"
               alt="Human Resource Consulting"
               className={styles.imageStyle}
             />
@@ -128,7 +129,8 @@ export const Consulting = () => {
         <div className={styles.titleButtons}>
           <div className={styles.consultingItem}>
             <img
-              src="/images/turnkeyRecruitment.png"
+              // src="/images/turnkeyRecruitment.png"
+              src="/images/turnKeyRecruitment.png"
               alt="Turnkey Recruitment"
               className={styles.imageStyle}
             />
