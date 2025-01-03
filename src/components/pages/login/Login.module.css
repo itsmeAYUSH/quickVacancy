@@ -20,14 +20,14 @@
 }
 
 .mainContent {
-    display: flex;
-    justify-content: space-between;
-    /* width: 90%; */
-    /* max-width: 1200px; */
-    background-color: white;
-    border-radius: 25px;
-    /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); */
-    box-shadow: 10px 10px 40px  rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  /* width: 90%; */
+  /* max-width: 1200px; */
+  background-color: white;
+  border-radius: 25px;
+  /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); */
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.5);
   padding: 35px;
 }
 
@@ -40,6 +40,7 @@
 .image {
   width: 100%;
   border-radius: 25px;
+  max-width: 70vh;
 }
 
 .logoOverlay {
@@ -59,14 +60,15 @@
 .loginContainer {
   width: 40%;
   background-color: white;
-  padding: 30px;
+  padding: 15px 30px 0px 30px;
   border-radius: 25px;
 }
 
 .loginTitle {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
 .formGroup {
@@ -80,28 +82,24 @@
 }
 
 .formGroup input {
-  width: 100%;
-  padding: 10px;
+  width: 96%;
+  padding-block: 10px;
   border-radius: 10px;
+  padding-left:10px ;
   border: 1px solid #ccc;
 }
 
 .loginButton {
+  /* background-color: #0D4470; Match your theme color */
   width: 100%;
   padding: 12px;
-  background-color: #0d4470;
-  color: white;
+  /* background-color: #0d4470; */
+  /* color: white; */
   border: none;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
-}
-
-.loginButton:hover {
   background-color: #3b8fd1;
-}
-.loginButton {
-  background-color: #0D4470; /* Match your theme color */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -114,12 +112,46 @@
 .loginButton:hover {
   background-color: #0a2e4d; /* Darker shade for hover effect */
 }
+.loginButtonGoogle {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 4px 10px;
+}
+.loginButtonGoogle:hover {
+  background-color: white;
+}
 
 .resetButton {
   background-color: transparent;
-  color: #0D4470;
+  color: #0d4470;
   border: none;
   cursor: pointer;
   text-decoration: underline;
   margin-top: 10px;
+  float: right;
+}
+.passwordContainer {
+  position: relative;
+  margin-top: 10px; /* Add some margin for spacing */
+}
+
+/* .passwordInput {
+   width: 100%; 
+   padding: 10px 40px 10px 10px; Add padding to accommodate the eye button 
+   border: 1px solid #ccc;
+   border-radius: 5px; 
+   font-size: 16px; 
+} */
+
+.eyeButton img {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 18px;
+  color: #0d4470; /* Match the color with your theme */
 }

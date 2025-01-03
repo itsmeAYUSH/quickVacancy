@@ -17,6 +17,7 @@ export const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -67,89 +68,132 @@ export const Login = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev); // Toggle the password visibility state
+  };
+
   if (isLoggedIn) {
     return <Navigate to="/" replace />;
   }
 
   return (
-    <div>
-      <div className={styles.dashboardContainer}>
-        <Header backgroundColor="#0D4470" />
-        <Navbar color="#0D4470" />
+    <div className={styles.dashboardContainer}>
+      <Header backgroundColor="#0D4470" />
+      <Navbar color="#0D4470" />
 
-        <div className={styles.mainContentContainer}>
-          <div className={styles.mainContent}>
-            <div className={styles.imageContainer}>
+      <div className={styles.mainContentContainer}>
+        <div className={styles.mainContent}>
+          <div className={styles.imageContainer}>
+            <img
+              src="./images/creative-people-working-office 1.png"
+              alt="Office team"
+              className={styles.image}
+            />
+            <div className={styles.logoOverlay}>
               <img
-                src="./images/creative-people-working-office 1.png"
-                alt="Office team"
-                className={styles.image}
+                src="./images/Quick-Vacancy-Consultancy-logo 3.png"
+                alt="Logo"
+                className={styles.logo}
               />
-              <div className={styles.logoOverlay}>
-                <img
-                  src="./images/Quick-Vacancy-Consultancy-logo 3.png"
-                  alt="Logo"
-                  className={styles.logo}
+            </div>
+          </div>
+
+          <div className={styles.loginContainer}>
+            <h2 className={styles.loginTitle}>Welcome Back</h2>
+            {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+            {resetEmailSent && (
+              <p className={styles.success}>
+                Password reset email sent! Check your inbox.
+              </p>
+            )}
+            <form onSubmit={handleLogin}>
+              <div className={styles.formGroup}>
+                <button
+                  type="button"
+                  className={
+                    styles.loginButton + " " + styles.loginButtonGoogle
+                  } // Use the same class for styling
+                  onClick={handleGoogleLogin}
+                  disabled={loading}
+                  style={{
+                    marginTop: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }} // Add some margin for spacing
+                >
+                  <img
+                    style={{ height: "30px", marginRight: "10px" }}
+                    src="/images/googleLogo.png"
+                  ></img>
+                  <span>Continue with Google</span>
+                </button>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <hr style={{ flex: 1, marginRight: "10px" }} />
+                  <p style={{ fontSize: "10px" }}>OR</p>
+                  <hr style={{ flex: 1, marginLeft: "10px" }} />
+                </div>
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
-            </div>
-
-            <div className={styles.loginContainer}>
-              <h2 className={styles.loginTitle}>Login</h2>
-              {errorMessage && <p className={styles.error}>{errorMessage}</p>}
-              {resetEmailSent && (
-                <p className={styles.success}>
-                  Password reset email sent! Check your inbox.
-                </p>
-              )}
-              <form onSubmit={handleLogin}>
-                <div className={styles.formGroup}>
-                  <label>Email address</label>
+              <div className={styles.formGroup}>
+                <label>Password</label>
+                <div className={styles.passwordContainer}>
                   <input
-                    type="email"
-                    placeholder="Email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className={styles.formGroup}>
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    placeholder="Password"
+                    type={showPassword ? "text" : "password"} // Toggle between text and password
+                    placeholder="Enter your Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    className={styles.passwordInput}
                   />
+                  <div
+                    type="button"
+                    className={styles.eyeButton}
+                    onClick={togglePasswordVisibility}
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
+                  >
+                    {/* {showPassword ? "🙈" : "👁️"} Change icon based on visibility */}
+                    {showPassword ? (
+                      <img src="/images/eye.svg"></img>
+                    ) : (
+                      <img src="/images/hide.svg"></img>
+                    )}{" "}
+                    {/* Change icon based on visibility */}
+                  </div>
                 </div>
-                <button
-                  type="submit"
-                  className={styles.loginButton}
-                  disabled={loading}
-                >
-                  {loading ? "Logging in..." : "Login"}
-                </button>
-                <button
-                  type="button"
-                  className={styles.loginButton} // Use the same class for styling
-                  onClick={handleGoogleLogin}
-                  disabled={loading}
-                  style={{ marginTop: " 10px" }} // Add some margin for spacing
-                >
-                  Login with Google
-                </button>
-              </form>
+              </div>
               <button
-                onClick={handlePasswordReset}
-                className={styles.resetButton}
+                type="submit"
+                className={styles.loginButton}
+                disabled={loading}
               >
-                Forgot Password?
+                {loading ? "Logging in..." : "Login"}
               </button>
-              <p>
-                Don't have an account? <Link to="/signup">Register here</Link>
-              </p>
-            </div>
+            </form>
+            <button
+              onClick={handlePasswordReset}
+              className={styles.resetButton}
+            >
+              Forgot Password?
+            </button>
+            <p style={{ marginTop: "30px" }}>
+              No account? <Link to="/signup">Create one</Link>
+            </p>
           </div>
         </div>
       </div>

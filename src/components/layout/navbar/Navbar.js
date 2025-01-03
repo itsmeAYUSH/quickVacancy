@@ -24,9 +24,13 @@ export const Navbar = ({ color }) => { // Destructure and set a default value fo
     setAnchorElServices(event.currentTarget);
   };
 
-  const handleGrowthFormulaClick =(event) =>{
+  // const handleGrowthFormulaClick =(event) =>{
+  //   setAnchorElGrowthFormula(event.currentTarget);
+  // }
+  const handleCarrerCounsellingClick =(event) =>{
     setAnchorElGrowthFormula(event.currentTarget);
   }
+  
   const handleSectorClick = (event) => {
     setAnchorElSector(event.currentTarget);
   };
@@ -62,7 +66,7 @@ export const Navbar = ({ color }) => { // Destructure and set a default value fo
             className={styles.button}
             color="inherit"
             component={Link}
-            to="/for-employee"
+            // to="/for-employee"
           >
             For Employee
           </Button>
@@ -79,10 +83,11 @@ export const Navbar = ({ color }) => { // Destructure and set a default value fo
             color="inherit"
             aria-controls="Growth-formula-menu"
             aria-haspopup="true"
-            onClick={handleGrowthFormulaClick}
+            onClick={handleCarrerCounsellingClick}
             endIcon={anchorElGrowthFormula ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           >
-            Growth formula
+            {/* Growth formula */}
+            Carrer Counselling
           </Button>
           <Menu
             id="Growth-formula-menu"

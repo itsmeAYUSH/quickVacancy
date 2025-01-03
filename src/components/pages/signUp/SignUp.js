@@ -3,9 +3,8 @@ import { Navbar } from "../../layout/navbar/Navbar";
 import Header from "../../layout/header/Header";
 import styles from "./SignUp.module.css";
 import { Navigate } from "react-router-dom";
-// import { auth } from "../../firebaseConfig"; // Import the auth object from your firebase config
 import { auth } from "../../fireBaseConfig/FireBaseConfig";
-import { createUserWithEmailAndPassword } from "firebase/auth"; // Corrected import statement
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -13,35 +12,30 @@ export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [designation, setDesignation] = useState("");
-  const [lookingTo, setLookingTo] = useState("");
+  const [lookingTo, setLookingTo] = useState("I am looking to hire"); // Fixed option
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
-  const [loading, setLoading] = useState(false); // Loading state
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true); // Set loading to true when starting the signup process
-    setErrorMessage(""); // Reset the error message
+    setLoading(true);
+    setErrorMessage("");
 
     try {
-      // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
       console.log("User  signed up successfully:", userCredential.user);
-
-      // Optionally, you can store additional user information in your database here
-      // For example, using an API call to save name, companyName, etc.
-
-      setIsLoggedIn(true); // Update the login state
+      setIsLoggedIn(true);
     } catch (error) {
       console.error("Signup error:", error.message);
-      setErrorMessage("Signup failed. Please try again."); // Set error message for UI
+      setErrorMessage("Signup failed. Please try again.");
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
@@ -56,8 +50,7 @@ export const SignUp = () => {
 
       <div className={styles.signupContainer}>
         <h2 className={styles.signupTitle}>Sign up</h2>
-        {errorMessage && <p className={styles.error}>{errorMessage}</p>}{" "}
-        {/* Display error message */}
+        {errorMessage && <p className={styles.error}>{errorMessage}</p>}
         <form className={styles.signupForm} onSubmit={handleSubmit}>
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
@@ -119,13 +112,13 @@ export const SignUp = () => {
                   Select your designation
                 </option>
                 <option>HR</option>
-                <option>Founder</option>
-                <option>CEO</option>
-                <option>Director</option>
+                <option>Founder / CEO / Director</option>
+                <option>Chairman</option>
+                <option>Admin</option>
               </select>
             </div>
           </div>
-          <div className={styles.formGroup}>
+          {/* <div className={styles.formGroup}>
             <label htmlFor="lookingTo">I am looking to</label>
             <select
               id="lookingTo"
@@ -139,6 +132,10 @@ export const SignUp = () => {
               <option>Hire</option>
               <option>Get hired</option>
             </select>
+          </div> */}
+          <div className={styles.formGroup}>
+            <label htmlFor="lookingTo">I am looking to</label>
+            <input type="text" id="lookingTo" value={lookingTo} readOnly />
           </div>
 
           <div className={styles.formGroup}>

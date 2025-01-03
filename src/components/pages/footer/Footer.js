@@ -7,7 +7,7 @@ export const Footer = () => {
     <div
       className={styles.header}
       style={{
-        backgroundImage: 'url("/images/handshake.jpg")',
+        backgroundImage: 'url("/images/handshake.svg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

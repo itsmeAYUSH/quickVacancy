@@ -15,7 +15,7 @@ export const AboutUs = () => {
     <div
       className={styles.header}
       style={{
-        backgroundImage: 'url("/images/Group 29.jpg")',
+        backgroundImage: 'url("/images/Group 69.svg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

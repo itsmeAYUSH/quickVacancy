@@ -9,7 +9,7 @@ export const ResumeWriting = () => {
       <div
         className={styles.header}
         style={{
-          backgroundImage: 'url("/images/Group 19.jpg")',
+          backgroundImage: 'url("/images/Group 19.svg")',
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
