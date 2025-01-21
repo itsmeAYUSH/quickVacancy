@@ -67,7 +67,7 @@ export const Consulting = () => {
 
         {/* Horizontal Line */}
         <svg width="900" height="2">
-          <line x1="50" y1="1" x2="850" y2="1" stroke="white" strokeWidth="2" />
+          <line x1="62" y1="1" x2="1063" y2="1" stroke="white" strokeWidth="2" />
         </svg>
 
         {/* Vertical Lines with Text */}
@@ -209,14 +209,14 @@ export const Consulting = () => {
 
           {/* Fourth Vertical Line */}
           <line
-            x1="650"
+            x1="700"
             y1="0"
-            x2="650"
+            x2="700"
             y2="150"
             stroke="white"
             strokeWidth="2"
           />
-          <foreignObject x="600" y="150" width="100" height="80">
+          <foreignObject x="650" y="150" width="100" height="80">
             <div
               onClick={() =>
                 handleNavigation("/Consulting/CXO-hiring-services")

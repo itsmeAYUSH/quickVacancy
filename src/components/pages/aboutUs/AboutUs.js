@@ -60,7 +60,8 @@ export const AboutUs = () => {
       </div>
 
       <div className={styles.moreOptions}>
-        Browse more options regarding consultancy
+        {/* Browse more options regarding consultancy */}
+        View Our Vision & Our Mission
         <br></br>
         <button className={styles.optionButton}>
           <img
