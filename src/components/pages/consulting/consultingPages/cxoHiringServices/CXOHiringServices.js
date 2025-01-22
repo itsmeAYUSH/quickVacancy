@@ -2,8 +2,19 @@ import React from "react";
 import { Navbar } from "../../../../layout/navbar/Navbar";
 import Header from "../../../../layout/header/Header";
 import styles from "./CXOHiringServices.module.css";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+
 
 export const CXOHiringServices = () => {
+   const navigate = useNavigate();
+  
+    const handleNavigation = (path) => {
+      navigate(path); // Navigate to the given path
+    };
+    const handleBackClick = () => {
+      handleNavigation("/");
+    };
   return (
     <div
       className={styles.header}
@@ -17,6 +28,10 @@ export const CXOHiringServices = () => {
       <Header backgroundColor="#04310E"></Header>
       <Navbar color="#04310E"></Navbar>
       <div className={styles.content}>
+      <button onClick={handleBackClick} className={styles.backButton}>
+            <FaArrowLeft style={{ marginRight: "8px" }} />
+            Back
+          </button>
         <h4>CXO hiring Services:</h4>
         <p>
           CXO stands for "Chief Experienced Officer", also adding Chief

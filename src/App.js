@@ -22,6 +22,7 @@ import { Login } from "./components/pages/login/Login";
 import { SignUp } from "./components/pages/signUp/SignUp";
 import PostJob from "./components/dashboard/pages/postJob/PostJob";
 import { Jobs } from "./components/dashboard/pages/jobs/Jobs";
+import { TermsAndConditions } from "./components/pages/termsAndConditions/TermsAndConditions";
 
 function HomeLayout() {
   return (
@@ -61,6 +62,7 @@ function App() {
         />{" "}
         <Route path="/about-us/vision&Mission" element={<OurVision />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/termsAndConditions" element={<TermsAndConditions />} />
         <Route path="/resume-upload" element={<ResumeUpload />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/jobs" element={<Jobs />} />

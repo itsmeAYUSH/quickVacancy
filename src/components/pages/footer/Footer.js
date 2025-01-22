@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Footer.module.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
@@ -22,7 +22,9 @@ export const Footer = () => {
           <span className={styles.separator}>|</span>
           <button>FAQs</button>
           <span className={styles.separator}>|</span>
-          <button>Terms and Conditions</button>
+          <Link to="/termsAndConditions">
+            <button>Terms and Conditions</button>
+          </Link>
         </div>
         <div className={styles.buttonRow}>
           <button>Contact Details</button>

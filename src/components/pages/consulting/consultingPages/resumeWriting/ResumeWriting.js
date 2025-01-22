@@ -2,8 +2,18 @@ import React from "react";
 import Header from "../../../../layout/header/Header";
 import { Navbar } from "../../../../layout/navbar/Navbar";
 import styles from "./ResumeWriting.module.css";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 export const ResumeWriting = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path); // Navigate to the given path
+  };
+  const handleBackClick = () => {
+    handleNavigation("/");
+  };
   return (
     <div>
       <div
@@ -20,6 +30,10 @@ export const ResumeWriting = () => {
         <Header backgroundColor="#04310E"></Header>
         <Navbar color="#04310E"></Navbar>
         <div className={styles.content}>
+          <button onClick={handleBackClick} className={styles.backButton}>
+            <FaArrowLeft style={{ marginRight: "8px" }} />
+            Back
+          </button>
           <h4>Resume Writing:</h4>
           <p>
             <br></br>

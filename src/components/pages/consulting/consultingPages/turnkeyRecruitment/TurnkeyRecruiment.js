@@ -2,8 +2,18 @@ import React from "react";
 import Header from "../../../../layout/header/Header";
 import { Navbar } from "../../../../layout/navbar/Navbar";
 import styles from "./TurnkeyRecruiment.module.css";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 export const TurnkeyRecruiment = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path); // Navigate to the given path
+  };
+  const handleBackClick = () => {
+    handleNavigation("/");
+  };
   return (
     <div
       className={styles.header}
@@ -17,6 +27,10 @@ export const TurnkeyRecruiment = () => {
       <Header backgroundColor="#04310E"></Header>
       <Navbar color="#04310E"></Navbar>
       <div className={styles.content}>
+        <button onClick={handleBackClick} className={styles.backButton}>
+          <FaArrowLeft style={{ marginRight: "8px" }} />
+          Back
+        </button>
         <h4>Turnkey Recruiting:</h4>
         <p>
           Quick Vacancy is considered as the best HR Consultancy and top

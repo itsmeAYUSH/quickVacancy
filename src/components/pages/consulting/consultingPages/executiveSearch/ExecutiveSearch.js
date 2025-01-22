@@ -2,8 +2,19 @@ import React from "react";
 import styles from "./ExecutiveSearch.module.css";
 import Header from "../../../../layout/header/Header";
 import { Navbar } from "../../../../layout/navbar/Navbar";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+
 
 export const ExecutiveSearch = () => {
+   const navigate = useNavigate();
+  
+    const handleNavigation = (path) => {
+      navigate(path); // Navigate to the given path
+    };
+    const handleBackClick = () => {
+      handleNavigation("/");
+    };
   return (
     <div>
       <div
@@ -19,6 +30,10 @@ export const ExecutiveSearch = () => {
           <Header backgroundColor="#04310E"></Header>
           <Navbar color="#04310E"></Navbar>
         <div className={styles.content}>
+        <button onClick={handleBackClick} className={styles.backButton}>
+            <FaArrowLeft style={{ marginRight: "8px" }} />
+            Back
+          </button>
           <h4>Executive Search:</h4>
           <p>
             Quick Vacancy is the best Recruitment Agency in Mumbai (India) whose
