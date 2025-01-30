@@ -5,7 +5,6 @@ import { Navbar } from "../../layout/navbar/Navbar";
 
 export const OurVision = () => {
   return (
-    <div>
       <div
         className={styles.header}
         style={{
@@ -42,6 +41,5 @@ export const OurVision = () => {
           </p>
         </div>
       </div>
-    </div>
   );
 };

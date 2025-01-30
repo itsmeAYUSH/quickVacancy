@@ -4,13 +4,12 @@ import { Navbar } from "../../layout/navbar/Navbar";
 import styles from "./AboutUs.module.css";
 import { useNavigate } from "react-router-dom";
 
-
 export const AboutUs = () => {
   const navigate = useNavigate();
 
-  const missionVisionClickHandler =()=>{
+  const missionVisionClickHandler = () => {
     navigate("/about-us/vision&Mission");
-  }
+  };
   return (
     <div
       className={styles.header}
@@ -59,14 +58,17 @@ export const AboutUs = () => {
         </p>
       </div>
 
-      <div className={styles.moreOptions}>
+      <div
+        className={styles.moreOptions}
+        onClick={missionVisionClickHandler} 
+      >
         {/* Browse more options regarding consultancy */}
         View Our Vision & Our Mission
         <br></br>
         <button className={styles.optionButton}>
           <img
+            onClick={missionVisionClickHandler}
             src="./images/arrow-downOrange.png"
-            onClick={missionVisionClickHandler} 
             alt="background-image"
           ></img>
         </button>

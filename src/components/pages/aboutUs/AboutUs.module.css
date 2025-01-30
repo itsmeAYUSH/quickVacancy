@@ -5,14 +5,15 @@
 
 .moreOptions {
   text-align: center;
-  color:#04310E ;
+  color: #04310e;
   margin-top: 100px;
+  cursor: pointer;
 }
 .optionButton {
   padding: 0;
   margin-top: 10px;
-  color:#04310E ;
-  background-color: #04310E;
+  color: #04310e;
+  background-color: #04310e;
 
   background-color: transparent;
   border: 0;
@@ -23,10 +24,9 @@
 .content {
   padding: 10%;
   padding-bottom: 0px;
-  color: #04310E;
+  color: #04310e;
   padding-top: 200px;
 }
-
 
 /* Bounce effect on hover */
 .optionButton:hover {
@@ -35,11 +35,12 @@
 
 /* Keyframes for bounce effect */
 @keyframes bounce {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     transform: translateY(0);
   }
   20% {
     transform: translateY(+5px); /* Adjust the bounce height */
   }
 }
-

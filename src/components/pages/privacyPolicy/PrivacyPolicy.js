@@ -4,8 +4,17 @@ import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
 import Pagination from "@mui/material/Pagination";
 import { Box } from "@mui/material";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export const PrivacyPolicy = () => {
+    const navigate = useNavigate();
+  const handleNavigation = (path) => {
+    navigate(path); // Navigate to the given path
+  };
+  const handleBackClick = () => {
+    handleNavigation("/");
+  };
   const [page, setPage] = useState(1);
 
   const handlePageChange = (event, value) => {
@@ -27,6 +36,10 @@ export const PrivacyPolicy = () => {
       <Navbar color="#0D4470" />
 
       <div className={styles.content}>
+      <button onClick={handleBackClick} className={styles.backButton}>
+          <FaArrowLeft style={{ marginRight: "8px" }} />
+          Back
+        </button>
         {page === 1 && (
           <>
             <h3>Privacy & Policy</h3>

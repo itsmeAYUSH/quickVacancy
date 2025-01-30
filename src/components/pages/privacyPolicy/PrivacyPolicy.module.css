@@ -21,6 +21,15 @@
   padding: 10%;
   padding-bottom: 0px;
   color: #0D4470;
-  padding-top: 200px;
+  padding-top: 150px;
 
+}
+.backButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #0d4470;
+  cursor: pointer;
 }

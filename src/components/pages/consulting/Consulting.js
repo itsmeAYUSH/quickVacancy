@@ -67,7 +67,7 @@ export const Consulting = () => {
 
         {/* Horizontal Line */}
         <svg width="900" height="2">
-          <line x1="62" y1="1" x2="1063" y2="1" stroke="white" strokeWidth="2" />
+          <line x1="50" y1="1" x2="850" y2="1" stroke="white" strokeWidth="2" />
         </svg>
 
         {/* Vertical Lines with Text */}
