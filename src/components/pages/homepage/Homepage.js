@@ -10,9 +10,9 @@ export const Homepage = () => {
   const handleResumeUploadClick = () => {
     navigate("/resume-upload");
   };
-  const dashboardClicker =() =>{
+  const dashboardClicker = () => {
     navigate("/dashboard");
-  }
+  };
 
   return (
     <div
@@ -32,11 +32,35 @@ export const Homepage = () => {
         <h2>
           Recruit high performing candidates using Quick vacancy Consultancy
         </h2>
+        {/* Search Bar */}
+        <div className={styles.searchBarContainer}>
+          <input
+            type="text"
+            placeholder="Search by job, community and skills"
+            className={styles.searchInput}
+          />
+          <input
+            type="text"
+            placeholder="Location"
+            className={styles.locationInput}
+          />
+          <select className={styles.experienceDropdown}>
+            <option>Experience</option>
+            <option>Fresher</option>
+            <option>1-3 years</option>
+            <option>3-5 years</option>
+            <option>5+ years</option>
+          </select>
+          <button className={styles.searchButton}>Search</button>
+        </div>
+
         <div className={styles.titleButtons}>
           <button className={styles.but1} onClick={handleResumeUploadClick}>
             Candidate Resume Upload
           </button>
-          <button className={styles.but2} onClick={dashboardClicker}>Company openings</button>
+          <button className={styles.but2} onClick={dashboardClicker}>
+            Company openings
+          </button>
         </div>
       </div>
 

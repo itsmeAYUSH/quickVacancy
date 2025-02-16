@@ -10,3 +10,12 @@
   margin-right: auto;
   height: 100px;
 }
+.backButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #04310e;
+  cursor: pointer;
+}
